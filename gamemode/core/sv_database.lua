@@ -4,10 +4,10 @@ local Database = {
     Connected = false,
     Queue = {},
     Config = {
-        SQLHost = "176.9.113.46",
-        SQLUser = "GMod1096458",
-        SQLPassword = "101096458",
-        SQLDB = "GMod1096458",
+        SQLHost = "1.2.3.4",
+        SQLUser = "root",
+        SQLPassword = "password",
+        SQLDB = "database",
         SQLPort = 3306 -- MySQL port is 3306 by standard. DO NOT change it unless you know what you are doing!
     }
 }
