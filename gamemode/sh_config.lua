@@ -1,0 +1,6 @@
+Amalgam.RegisterConfig("AllowIntro", true, "Enable the one-time intro on first join")
+Amalgam.RegisterConfig("OOCDelay", 5, "Cooldown between OOC messages")
+Amalgam.RegisterConfig("WalkSpeed", 115, "Player walk speed")
+Amalgam.RegisterConfig("RunSpeed", 225, "Player run speed")
+Amalgam.RegisterConfig("MaxWeight", 50, "Inventory capacity before slowdowns")
+Amalgam.RegisterConfig("JobIncome", true, "Enable job income generation")

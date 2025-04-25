@@ -1,0 +1,8 @@
+"amalgam"
+{
+	"base"		"sandbox"
+	"title"		"Amalgam"
+	"desc"      "A lightweight flexible gamebase"
+	"author"	"Ceryx"
+	"menusystem" 	"1"
+}
