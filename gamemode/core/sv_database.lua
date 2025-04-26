@@ -5,9 +5,9 @@ local Database = {
     Queue = {},
     Config = {
         SQLHost = "1.2.3.4",
-        SQLUser = "root",
-        SQLPassword = "password",
-        SQLDB = "database",
+        SQLUser = "Root",
+        SQLPassword = "Password",
+        SQLDB = "Database",
         SQLPort = 3306 -- MySQL port is 3306 by standard. DO NOT change it unless you know what you are doing!
     }
 }
