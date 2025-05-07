@@ -4,7 +4,7 @@ function GM:PlayerInitialSpawn(ply)
         if (not IsValid(ply)) then return end
         dbloadAttempts = dbloadAttempts + 1
 
-        if (Database.Connected ~= nil) then
+        if (Database and Database.Connected ~= nil) then
             net.Start("nDatabaseStatus")
             net.WriteBool(Database.Connected == true)
             net.Send(ply)
