@@ -91,15 +91,15 @@ Amalgam:RegisterChatType("pm", {
     Private = true,
     Format = function(ply, msg)
         local name, content = msg:match("^(%S+)%s+(.+)$")
-        if (not name or not content) then 
+        if (not name or not content) then
             ply:Notify("Invalid Name Given!")
-            return true 
+            return true
         end
 
         local target = ply:FindPlayer(name)
         if (not IsValid(target)) then
             ply:Notify("No target found by: " .. name .. ".")
-            return true 
+            return true
         end
 
         Amalgam.SendFormattedMessage({ply, target}, {
@@ -204,9 +204,16 @@ if (CLIENT) then
         end
     end)
 
+    function MODULE:OnPauseMenuShow()
+        if Amalgam.ChatOpen then
+            Amalgam.Chatbox:CloseChatbox()
+            return false
+        end
+    end
+
     function MODULE:HUDShouldDraw(element)
-        if (element == "CHudChat")then 
-            return false 
+        if (element == "CHudChat")then
+            return false
         end
     end
 
@@ -285,8 +292,8 @@ if (CLIENT) then
 	    if (not pressed) then return end
 
 	    if (pressed and bind == "messagemode") then
-	        if (IsValid(Amalgam.Chatbox)) then 
-	            Amalgam.Chatbox:Remove() 
+	        if (IsValid(Amalgam.Chatbox)) then
+	            Amalgam.Chatbox:Remove()
 	        end
 	        Amalgam.Chatbox = vgui.Create("AmalgamChatBox")
 	        Amalgam.Chatbox:OpenChatbox()
@@ -303,4 +310,4 @@ end
 
 function meta:IsTyping()
     return self:GetNWBool("PlayerTyping", false)
-end 
+end
