@@ -59,7 +59,7 @@ function PANEL:Init()
                 net.WriteString(text)
             net.SendToServer()
 
-            local formatLog = "[".. string.upper(self.chatPrefix) .."][".. LocalPlayer():Nick() .. "] " .. LocalPlayer():GetCharNickname() .. ": " .. text 
+            local formatLog = "[".. string.upper(self.chatPrefix) .."][".. LocalPlayer():Nick() .. "] " .. LocalPlayer():GetCharNickname() .. ": " .. text
 
             net.Start("nSendChatLog")
                 net.WriteString(formatLog)
@@ -110,14 +110,14 @@ function PANEL:OpenChatbox()
     self.Input:RequestFocus()
     Amalgam.ChatOpen = true
     LocalPlayer():SetTyping(true)
-  
+
     net.Start("nTypingStatus")
         net.WriteBool(true)
     net.SendToServer()
 end
 
 function PANEL:CloseChatbox()
-    self:SetVisible(false)
+    self:Remove()
     Amalgam.ChatOpen = false
     net.Start("nTypingStatus")
     	net.WriteBool(false)
