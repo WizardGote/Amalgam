@@ -41,7 +41,7 @@ function PANEL:Init()
     self.CloseButton.DoClick = function()
         self:CloseInventory()
     end
-    
+
     self.CloseButton.Paint = function(s, w, h)
         local col = s:IsHovered() and Color(255, 168, 35, 180) or Color(150, 75, 25, 180)
         draw.RoundedBox(8, 0, 0, w, h, col)
@@ -140,7 +140,7 @@ function PANEL:ToolTip(itemData)
     icon:SetPos(0, 0)
     icon:SetTooltip(false)
     icon:SetMouseInputEnabled(false)
-    icon.PaintOver = function() end 
+    icon.PaintOver = function() end
 
     local nameLabel = vgui.Create("DLabel", tooltip)
     nameLabel:SetFont("Amalgam.ToolTipLabelBig")
@@ -275,12 +275,10 @@ function PANEL:PopulateInventory()
             end
 
             container.OnCursorExited = function()
-                timer.Simple(0.05, function()
-                    local hovered = vgui.GetHoveredPanel()
-                    if IsValid(self.Tooltip) and (not hovered or hovered:GetName() ~= "DMenu") then
-                        self.Tooltip:Remove()
-                    end
-                end)
+                local hovered = vgui.GetHoveredPanel()
+                if IsValid(self.Tooltip) and (not hovered or hovered:GetName() ~= "DMenu") then
+                    self.Tooltip:Remove()
+                end
             end
 
             if amount > 1 then
@@ -312,7 +310,7 @@ function PANEL:PopulateInventory()
                                 if IsValid(self.Tooltip) then
                                     self.Tooltip:Remove()
                                 end
-                                timer.Simple(0.1, function() 
+                                timer.Simple(0.1, function()
                                     self:PopulateInventory()
                                     if (IsValid(self.WeightLabel)) then
                                         local weight = LocalPlayer():GetInventoryWeight()
@@ -323,7 +321,7 @@ function PANEL:PopulateInventory()
                             end)
                         end
                     end
-                    
+
                     menu.OnRemove = function()
                         if IsValid(self.Tooltip) then
                             self.Tooltip:Remove()
@@ -334,6 +332,12 @@ function PANEL:PopulateInventory()
                 end
             end
         end
+    end
+end
+
+function PANEL:OnKeyCodePressed(key)
+    if input.LookupKeyBinding(key) == "+menu" then
+        self:CloseInventory()
     end
 end
 
