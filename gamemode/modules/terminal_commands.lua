@@ -95,7 +95,7 @@ Amalgam.RegisterCommand("listitems", "Print all the existing items", function(pl
     table.insert(index, "Existing Items:")
     for _, v in pairs(Amalgam.Items) do
         ind = ind + 1
-        local id = v.UniqueName
+        local id = v.UniqueID
         local name = v.Name
         local argsDisplay = ind .. ") " .. "[" .. id .. "] " .. name 
         table.insert(index, argsDisplay)
